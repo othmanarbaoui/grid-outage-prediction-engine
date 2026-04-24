@@ -69,8 +69,8 @@ The default decision threshold is **0.30** — optimised for high recall
 You can override it per request.
         """,
         contact={
-            "name": "Grid AI Team",
-            "email": "ai@grid-ops.example.com",
+            "name": "ARBAOUI OTHMANE",
+            "email": "othmanearbaoui75@gmail.com",
         },
         license_info={
             "name": "MIT",

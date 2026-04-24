@@ -208,10 +208,10 @@ Predict whether the power grid at a telecom site will go down in the **next 30 m
 ### Model options
 | Model      | Type         | Min rows | Notes |
 |------------|--------------|----------|-------|
-| `xgboost`  | Tree ensemble | 1+      | Fast; trained on top-20 features |
-| `lightgbm` | Tree ensemble | 1+      | Fast; same feature set as XGBoost |
-| `lstm`     | Deep learning | 12+     | Bidirectional LSTM; best on sequential patterns |
-| `gan`      | Deep learning | 12+     | CNN discriminator from adversarial training |
+| `xgboost`  | Tree ensemble | 12+      | Fast; trained on top-20 features |
+| `lightgbm` | Tree ensemble | 12+      | Fast; same feature set as XGBoost |
+| `lstm`     | Deep learning | 23+     | Bidirectional LSTM; best on sequential patterns |
+| `gan`      | Deep learning | 23+     | CNN discriminator from adversarial training |
 
 ### Threshold
 Lower threshold → higher recall (fewer missed outages, more false alarms).  
@@ -219,7 +219,7 @@ Default is **0.30** (tuned for telecom sites where missed outages are costly).
 
 ### Row ordering
 Provide rows in **chronological order** (oldest → newest).
-For LSTM/GAN, the last `sequence_len` rows are used.
+The last `sequence_len` rows are used.
 """,
     tags=["Prediction"],
 )
