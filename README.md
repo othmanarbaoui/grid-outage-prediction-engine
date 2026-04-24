@@ -58,33 +58,7 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env if needed (paths, threshold, port …)
 ```
-
-### 3 — Export artifacts from the training notebook
-
-Open `Main_improved_GAN.ipynb`, run all cells, then run the export script
-**inside the same kernel** (or paste it as a new cell):
-
-```bash
-python scripts/export_artifacts.py
-```
-
-This writes 6 files to `app/artifacts/`:
-
-```
-app/artifacts/
-├── scaler.joblib
-├── feature_names.joblib
-├── best_lstm_outage.keras
-├── best_gan_discriminator.keras
-├── xgboost_model.joblib
-└── lightgbm_model.joblib
-```
-
-> **Large files** — add these to Git LFS or store them in an object store
-> (S3, Azure Blob) and download at deploy time. The `.gitignore` excludes
-> them from regular commits.
-
-### 4 — Run the API
+### 3 — Run the API
 
 ```bash
 python main.py
@@ -109,14 +83,18 @@ Open **http://localhost:8000** → redirects to Swagger UI.
   "model": "xgboost",
   "threshold": 0.30,
   "rows": [
-    {
-      "bucket_5m": "2026-04-01T08:00:00",
-      "site_id": 0,
-      "voltageA": 232.1, "voltageB": 231.5, "voltageC": 230.8,
-      "current1A": 12.3, "current1B": 11.9, "current1C": 12.7,
-      "activePower1A": 2850.0, "activePower1B": 2760.0, "activePower1C": 2930.0,
-      "frequency": 50.02
-    }
+    {"bucket_5m": "2026-04-01T07:00:00", "site_id": 0, "voltageA": 232.12, "voltageB": 231.47, "voltageC": 230.96, "current1A": 12.48, "current1B": 11.87, "current1C": 12.67, "activePower1A": 2896.9, "activePower1B": 2747.5, "activePower1C": 2926.3, "frequency": 50.039},
+    {"bucket_5m": "2026-04-01T07:05:00", "site_id": 0, "voltageA": 232.11, "voltageB": 231.30, "voltageC": 230.86, "current1A": 12.24, "current1B": 11.84, "current1C": 12.73, "activePower1A": 2841.0, "activePower1B": 2738.6, "activePower1C": 2938.8, "frequency": 49.952},
+    {"bucket_5m": "2026-04-01T07:10:00", "site_id": 0, "voltageA": 231.41, "voltageB": 231.20, "voltageC": 230.39, "current1A": 12.34, "current1B": 11.79, "current1C": 12.53, "activePower1A": 2855.6, "activePower1B": 2725.8, "activePower1C": 2886.8, "frequency": 50.037},
+    {"bucket_5m": "2026-04-01T07:15:00", "site_id": 0, "voltageA": 231.70, "voltageB": 231.28, "voltageC": 230.20, "current1A": 12.23, "current1B": 11.91, "current1C": 12.56, "activePower1A": 2833.7, "activePower1B": 2754.5, "activePower1C": 2891.3, "frequency": 50.009},
+    {"bucket_5m": "2026-04-01T07:20:00", "site_id": 0, "voltageA": 231.53, "voltageB": 231.11, "voltageC": 230.33, "current1A": 12.52, "current1B": 11.90, "current1C": 12.57, "activePower1A": 2898.8, "activePower1B": 2750.2, "activePower1C": 2895.2, "frequency": 50.021},
+    {"bucket_5m": "2026-04-01T07:25:00", "site_id": 0, "voltageA": 231.29, "voltageB": 231.15, "voltageC": 229.91, "current1A": 12.14, "current1B": 11.92, "current1C": 12.79, "activePower1A": 2807.9, "activePower1B": 2755.3, "activePower1C": 2940.5, "frequency": 50.004},
+    {"bucket_5m": "2026-04-01T07:30:00", "site_id": 0, "voltageA": 231.49, "voltageB": 230.94, "voltageC": 229.95, "current1A": 12.21, "current1B": 11.84, "current1C": 12.83, "activePower1A": 2826.5, "activePower1B": 2734.3, "activePower1C": 2950.3, "frequency": 50.009},
+    {"bucket_5m": "2026-04-01T07:35:00", "site_id": 0, "voltageA": 231.00, "voltageB": 231.02, "voltageC": 230.14, "current1A": 12.22, "current1B": 11.97, "current1C": 12.82, "activePower1A": 2822.8, "activePower1B": 2765.3, "activePower1C": 2950.4, "frequency": 50.023},
+    {"bucket_5m": "2026-04-01T07:40:00", "site_id": 0, "voltageA": 231.15, "voltageB": 230.78, "voltageC": 230.24, "current1A": 12.42, "current1B": 11.84, "current1C": 12.68, "activePower1A": 2870.9, "activePower1B": 2732.4, "activePower1C": 2919.4, "frequency": 49.972},
+    {"bucket_5m": "2026-04-01T07:45:00", "site_id": 0, "voltageA": 230.98, "voltageB": 230.98, "voltageC": 230.42, "current1A": 12.29, "current1B": 12.02, "current1C": 12.74, "activePower1A": 2838.7, "activePower1B": 2776.4, "activePower1C": 2935.6, "frequency": 49.984},
+    {"bucket_5m": "2026-04-01T07:50:00", "site_id": 0, "voltageA": 231.29, "voltageB": 231.08, "voltageC": 229.99, "current1A": 12.49, "current1B": 11.59, "current1C": 12.80, "activePower1A": 2888.8, "activePower1B": 2678.2, "activePower1C": 2943.9, "frequency": 50.002},
+    {"bucket_5m": "2026-04-01T07:55:00", "site_id": 0, "voltageA": 231.05, "voltageB": 230.64, "voltageC": 229.42, "current1A": 12.27, "current1B": 11.94, "current1C": 12.88, "activePower1A": 2835.0, "activePower1B": 2753.8, "activePower1C": 2954.9, "frequency": 49.987}
   ]
 }
 ```
@@ -134,7 +112,7 @@ Open **http://localhost:8000** → redirects to Swagger UI.
 }
 ```
 
-For **LSTM / GAN**, provide **≥ 12 rows** (chronologically ordered).
+For **LSTM / GAN**, provide **≥ 23 rows** (chronologically ordered).
 
 ### `GET /api/v1/models`
 
@@ -150,8 +128,8 @@ Liveness + readiness probe (use for Docker / Kubernetes health checks).
 
 | Model | Rows needed | Why |
 |-------|-------------|-----|
-| `xgboost` / `lightgbm` | ≥ 1 (use last row) | Rolling features are pre-computed; tabular input |
-| `lstm` / `gan` | ≥ 12 | Needs `sequence_len` timesteps for the recurrent / convolutional input |
+| `xgboost` / `lightgbm` | ≥ 12 (use last row) | Rolling features are pre-computed; tabular input |
+| `lstm` / `gan` | ≥ 23 | Needs `sequence_len` timesteps for the recurrent / convolutional input |
 
 > **Tip:** Always send more rows than the minimum (e.g. 20–30) so that
 > rolling windows and lag features computed inside `engineer_features()` 
@@ -208,17 +186,3 @@ curl http://localhost:8000/openapi.json
 ```
 
 ---
-
-## Adding a new model
-
-1. Train and serialise the model (`joblib.dump` or `.save()`).
-2. Add its path to `.env.example` and `app/config.py`.
-3. Add a loader method to `app/services/model_loader.py`.
-4. Add `"new_model"` to the `ModelName` Literal in `app/routes/predict.py`.
-5. Add its inference branch in `predict()` (tabular or sequence).
-
----
-
-## License
-
-MIT
