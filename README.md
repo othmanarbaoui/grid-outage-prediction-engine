@@ -31,10 +31,10 @@ grid-outage-prediction-engine/
 
 | Key | Type | Min rows | Description |
 |-----|------|----------|-------------|
-| `xgboost`  | Tree ensemble | 1 | XGBoost trained on top-20 features |
-| `lightgbm` | Tree ensemble | 1 | LightGBM, same features |
-| `lstm`     | Bidirectional LSTM | 12 | 4-layer BiLSTM, 60-min context window |
-| `gan`      | CNN discriminator | 12 | Adversarially trained (LSTM generator) |
+| `xgboost`  | Tree ensemble | 12 | XGBoost trained on top-20 features |
+| `lightgbm` | Tree ensemble | 12 | LightGBM, same features |
+| `lstm`     | Bidirectional LSTM | 23 | 4-layer BiLSTM, 60-min context window |
+| `gan`      | CNN discriminator | 23 | Adversarially trained (LSTM generator) |
 
 ---
 
