@@ -43,7 +43,7 @@ grid-outage-prediction-engine/
 ### 1 — Clone & install
 
 ```bash
-git clone https://github.com/your-org/grid-outage-prediction-engine.git
+git clone https://github.com/othmanarbaoui/grid-outage-prediction-engine.git
 cd grid-outage-prediction-engine
 
 python -m venv .venv
