@@ -52,13 +52,7 @@ source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2 — Configure environment
-
-```bash
-cp .env.example .env
-# Edit .env if needed (paths, threshold, port …)
-```
-### 3 — Run the API
+### 2 — Run the API
 
 ```bash
 python main.py
